@@ -1,0 +1,132 @@
+--------------------------------------------------------------------- 
+SUMMER TRAINING (day-6)
+---------------------------------------------------------------------
+ 1)#printing subset of length 3 using recursion 
+ '''
+ method-1 time =o[n*3]
+ l=list(map(int,input().split(',')))
+ print(l)
+ for i in range(len(l)):
+     for j in range(i+1,len(l)):
+     
+         for k in range(j+1,len(l)):
+             print(l[i],l[j],l[k])
+ '''
+ #
+ method-2
+ def combination(l,k):
+     def fun(curr,start):
+         if len(curr)==k:
+             print(curr)
+             return
+         for i in range(start,len(l)):
+             fun(curr+[l[i]],i+1)
+         return
+     fun([],0)
+ a=[3,5,1,6]
+ k=3 #length of subset
+ combination(a,k)
+ #we can print any no of subset with this code
+ ---------------------------------------------------------------------
+2)fib of given range
+ def fib(x):
+     if x==1:
+         return 1
+     if x==2:
+         return 1
+     return fib(x-1)+fib(x-2)
+ for i in range(10):
+     print(i)
+----------------------------------------------------------------------
+3)Anagram 
+l=left rotation and r=right rotation rotate the string and check
+Result is an anagram with list of input Len subset of input string
+
+if l[i]>len(s) l[i]%len(s)
+s=input()
+n=int(input()
+'''
+for
+l1=[2,3,1]
+l=[]
+s=list(s)
+for i in range(len(s)):
+    for j in range(i+1,len(s)):
+        sub=s[i:j+1]
+        if len(sub)==n:
+            l=l+[sub]
+            #print(sub)
+print(l)
+s1=[]
+for i in l1:
+    s1=s1+list(s[i])
+#s1=s1.sort()
+s1.sort()
+if s1 in l:
+    print("yes",s1)
+
+input:school
+       3
+      l=2
+      r=3
+      l=1
+output:-
+[['s', 'c', 'h'], ['c', 'h', 'o'], ['h', 'o', 'o'], ['o', 'o', 'l']]
+yes ['c', 'h', 'o']
+--------------------------------------------------------------------
+4)input as integer number which whether the numbers whose sum
+Is equal to input are prime or not .by considering 1 as prime
+Print yes if condition satisfied else no
+
+def isprime(n):
+    if n==1:
+        return 1
+    if n==2:
+        return 1
+    for i in range(2,(n//2)+1):
+        if n%i==0:
+            return 0
+    return 1
+    
+n=int(input())
+for i in range(1,(n//2)+1):
+    if isprime(i) and isprime(n-i):
+        print("yes")
+        break
+else:
+    print("No")
+------------------------------------------------------
+5)Input number
+1st input string in which sort the second input print is to be printed
+
+n=input()
+while(n):
+    a=input()
+    c=input()
+    for i in a:
+        if i in c:
+            print(i*c.count(i))
+    n=n-1
+    print()
+Qwertyuiopasdfghjklzxcvbnm(order to be followed)
+Abc
+Explain:-in order first a then c followed by b
+So print acb as output
+-----------------------------------------------------------
+ #theif and gold 
+ theif cant take gold from neigh house
+ l=list(map(int,input().split(',')))
+ s=0
+ def fun(l):
+     if len(l)==0:
+         return 0
+     if len(l)==1:
+         return l[0]
+     if len(l)==2:
+         return max(l)
+     left=l[0]+fun(l[2:])
+     right=l[1]+fun(l[3:])
+     return max(left,right)
+ print(fun(l))
+ input:13,9,4,10,5,7
+output:-30     
